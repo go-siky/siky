@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <tr>
+        <th><span class="glyphicon glyphicon-tag"></span> Tag</th>
+        <th><span class="glyphicon glyphicon-qrcode"></span> Image ID</th>
+        <th><span class="glyphicon glyphicon-calendar"> </span> Created</th>
+        <th><span class="glyphicon glyphicon-user"> </span> Author</th>
+        <th><span class="glyphicon glyphicon-eye-open"> </span> Docker vertsion</th>
+    </tr>
+    <tr *ngFor="let tag of tags">
+        <td><a (click)="gotoTag(group,image,tag.version)" style="cursor: pointer"><span class="">{{tag.version}}</span></a></td>
+        <td>{{tag.id.substr(0,12)}}</td>
+        <td>{{tag.created | date:"yyyy-MM-dd HH:mm:ss"}}</td>
+        <td>{{tag.author}}</td>
+        <td>{{tag.docker_version}}</td>
+    </tr>
+</table>

@@ -1,0 +1,38 @@
+<h3>Repositories</h3>
+<!--<table class="table table-hover">-->
+    <!--<tr>-->
+        <!--<th><span class="glyphicon"> </span>Images</th>-->
+
+        <!--&lt;!&ndash;<th><span class="glyphicon glyphicon-calendar"> </span>Created</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th><span class="glyphicon glyphicon-user"> </span>Author</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th><span class="glyphicon glyphicon-eye-open"> </span>Docker vertsion</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th><span class="glyphicon glyphicon-tag"></span>Tag</th>&ndash;&gt;-->
+
+
+    <!--</tr>-->
+    <!--<tr *ngFor="let repo of repos">-->
+        <!--<td><a style="cursor: pointer;" (click)="gotoTags(repo)">{{repo}}</a></td>-->
+        <!--&lt;!&ndash;<td>{{tag.created | date:"yyyy-dd-MM HH:mm:ss"}}</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>{{tag.author}}</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>{{tag.docker_version}}</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><span class="badge">{{tag.tag}}</span></td>&ndash;&gt;-->
+    <!--</tr>-->
+
+<!--</table>-->
+
+
+<div *ngFor="let repo of repos" class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th colspan="2"> {{repo.group}}<span class="badge pull-right">{{repo.images.length}}</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let image of repo.images">
+            <td><a style="cursor: pointer;" (click)="gotoTags(repo.group,image)">{{image}}</a></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

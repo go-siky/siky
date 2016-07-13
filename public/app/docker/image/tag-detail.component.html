@@ -1,0 +1,70 @@
+<div class="well">docker pull index.changhong.io/{{group!=''?group+'/':''}}{{image}}:{{version}}</div>
+<div>
+    <h2>Image Details</h2>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">General
+            information</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Labels</a></li>
+        <!--<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>-->
+        <!--<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>-->
+    </ul>
+
+    <!-- Tab panes -->
+    <!--<div class="tab-content">-->
+    <!--<div role="tabpanel" class="tab-pane active" id="home">...</div>-->
+    <!--<div role="tabpanel" class="tab-pane" id="profile">...</div>-->
+    <!--<div role="tabpanel" class="tab-pane" id="messages">...</div>-->
+    <!--<div role="tabpanel" class="tab-pane" id="settings">...</div>-->
+    <!--</div>-->
+    <div class="tab-content" *ngIf="tag">
+        <div role="tabpanel" class="tab-pane fade in active" id="home">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">
+                        <span class="glyphicon glyphicon-user"></span>
+                        Author
+                    </label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static ng-binding">{{tag.author}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label"><span class="glyphicon glyphicon-calendar"></span>
+                        Created</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static ng-binding">{{tag.created}}</p>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label"><span class="glyphicon glyphicon-eye-open"></span> Docker
+                        version</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static ng-binding">{{tag.version}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label"><span class="glyphicon glyphicon-cog"></span> OS</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static ng-binding">{{tag.os}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label"><span class="glyphicon glyphicon-qrcode"></span> ID</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static ng-binding">{{tag.id}}</p>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="profile">todo</div>
+        <!--<div role="tabpanel" class="tab-pane fade" id="messages">...</div>-->
+        <!--<div role="tabpanel" class="tab-pane fade" id="settings">...</div>-->
+    </div>
+
+</div>
+
