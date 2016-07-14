@@ -1,0 +1,10 @@
+database:
+  mongo:
+    url: 10.3.30.183
+server:
+  port: 8080
+logger:
+  level: 0  --- 0 debug 1 Info
+registry:
+  url: http://10.3.15.35:5000
+  version: v2

@@ -1,23 +1,28 @@
 package main
 
 import (
-	"log"
 	"net/http"
-	"time"
 
+	"github.com/qiniu/log"
+	"gopkg.in/siky/config"
 	"gopkg.in/siky/db"
 	"gopkg.in/siky/route"
 )
 
-func main() {
-	session, err := db.InitMgo("10.3.30.183")
+func init() {
+	cfg, err := config.New("./")
 	if err != nil {
-		log.Println("err")
+		log.Fatal(err)
+	}
+	log.SetOutputLevel(cfg.Logger.Level)
+}
+func main() {
+
+	session, err := db.InitMgo(config.Get().Database.Mongo.URL)
+	if err != nil {
+		log.Fatal("err", err)
 	}
 	defer session.Close()
-
-	time.Sleep(time.Second * 30)
 	mHandlers := route.InitHandlers()
-	log.Fatal(http.ListenAndServe(":8080", mHandlers))
-
+	log.Fatal(http.ListenAndServe(":"+config.Get().Server.Port, mHandlers))
 }

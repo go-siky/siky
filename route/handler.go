@@ -1,7 +1,6 @@
 package route
 
 import (
-	"log"
 	"net/http"
 	"strings"
 
@@ -31,7 +30,6 @@ func InitHandlers() *Handlers {
 
 	mHandlers := make(Handlers, 0)
 	mHandlers = append(mHandlers, router)
-	log.Fatal(http.ListenAndServe(":8080", mHandlers))
 
 	return &mHandlers
 }
